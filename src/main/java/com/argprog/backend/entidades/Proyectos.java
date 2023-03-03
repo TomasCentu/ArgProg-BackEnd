@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,25 +15,19 @@ public class Proyectos {
         private int id;
         
         private String nombre;
-        private String descripcion;
         private String foto;
-        
-        @ManyToOne(targetEntity = Persona.class)
-        private Persona persona;
+        private String demo;
+        private String repo;
+        private String descripcion;
 
         public Proyectos() {  }
 
-        public Proyectos(String nombre, String descripcion, String foto) {
+        public Proyectos(String nombre, String foto, String demo, String repo, String descripcion) {
                 this.nombre = nombre;
-                this.descripcion = descripcion;
                 this.foto = foto;
-        }
-
-        public Proyectos(String nombre, String descripcion, String foto, Persona persona) {
-                this.nombre = nombre;
+                this.demo = demo;
+                this.repo = repo;
                 this.descripcion = descripcion;
-                this.foto = foto;
-                this.persona = persona;
         }
   
 }

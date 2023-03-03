@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -30,13 +30,13 @@ public class PersonaC {
         }
         
         @PostMapping("/save")
-        public String save(@RequestParam Persona persona) {
+        public String save(@RequestBody Persona persona) {
                 serv.save(persona);
                 return "Persona guardada con exito";
         }
         
         @PostMapping("/edit")
-        public String edit(@RequestParam Persona persona) {
+        public String edit(@RequestBody Persona persona) {
                 serv.edit(persona);
                 return "Persona editada con exito";
         }

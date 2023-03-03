@@ -35,6 +35,8 @@ public class ProyectosServ {
 
         OldPro.setNombre(pro.getNombre());
         OldPro.setFoto(pro.getFoto());
+        OldPro.setDemo(pro.getDemo());
+        OldPro.setRepo(pro.getRepo());
         OldPro.setDescripcion(pro.getDescripcion());
 
         repo.save(OldPro);

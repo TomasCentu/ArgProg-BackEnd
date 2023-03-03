@@ -1,12 +1,13 @@
 package com.argprog.backend.entidades;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,41 +18,30 @@ public class Persona {
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
         
+        @NotNull
         private String nombre;
+        @NotNull
         private String cargo;
+
         private String foto;
+        private String sobreMi;
+        private String banner;
         
-        @OneToMany(mappedBy = "persona")
-        private HashSet<Proyectos> proyectos;
+        private List<Integer> proyectos = new ArrayList<>();
 
-        @OneToMany(mappedBy = "persona")
-        private HashSet<Experiencias> expeciencias;
+        private List<Integer> experiencias = new ArrayList<>();
 
-        @OneToMany(mappedBy = "persona")
-        private HashSet<Estudios>estudios;
+        private List<Integer> estudios = new ArrayList<>();
         
-        @OneToMany(mappedBy = "persona")
-        private HashSet<Habilidades> habilidades;
+        private List<Integer> habilidades = new ArrayList<>();
 
         public Persona() {  }
 
-        public Persona(String nombre, String cargo, String foto) {
+        public Persona(String nombre, String cargo, String foto, String banner, String sobreMi) {
                 this.nombre = nombre;
                 this.cargo = cargo;
                 this.foto = foto;
+                this.banner = banner;
+                this.sobreMi = sobreMi;
         }
-
-        public Persona(String nombre, String cargo, String foto, HashSet<Proyectos> proyectos,
-                        HashSet<Experiencias> expeciencias, HashSet<Estudios> estudios,
-                        HashSet<Habilidades> habilidades) {
-                this.nombre = nombre;
-                this.cargo = cargo;
-                this.foto = foto;
-                this.proyectos = proyectos;
-                this.expeciencias = expeciencias;
-                this.estudios = estudios;
-                this.habilidades = habilidades;
-        }
-        
-        
 }

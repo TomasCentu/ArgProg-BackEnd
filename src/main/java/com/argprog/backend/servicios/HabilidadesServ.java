@@ -32,9 +32,7 @@ public class HabilidadesServ {
     
     public void edit(Habilidades habilidad) {
         Habilidades OldHabilidades = repo.findById(habilidad.getId()).orElse(null);
-        OldHabilidades.setNombre(habilidad.getNombre());
-        OldHabilidades.setDescripcion(habilidad.getDescripcion());
-        OldHabilidades.setFoto(habilidad.getFoto());
+        OldHabilidades.setPorcentaje(habilidad.getPorcentaje());
             
         repo.save(OldHabilidades);
     }

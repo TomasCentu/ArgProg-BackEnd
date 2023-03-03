@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.argprog.backend.entidades.Estudios;
 import com.argprog.backend.servicios.EstudiosServ;
+import com.argprog.backend.servicios.PersonaServ;
 
 @RestController
 @RequestMapping("/per/est")
@@ -20,6 +21,9 @@ public class EstudiosC {
 
     @Autowired
     private EstudiosServ serv;
+
+    @Autowired
+    private PersonaServ servP;
 
     @GetMapping("/getAll")
     public List<Estudios> getAll() {
@@ -31,20 +35,23 @@ public class EstudiosC {
         return serv.getEstudio(id);
     }
 
-    @PostMapping("/save")
-    public String save(@RequestParam Estudios est) {
+    @PostMapping("/save/{id}")
+    public String save(@PathVariable int id, @RequestBody Estudios est) {
         serv.save(est);
+        servP.agregarEst(id, est.getId());
         return "Estudio guardada con exito";
     }
 
-    @PostMapping("/edit")
-    public String edit(@RequestParam Estudios est) {
+    @PostMapping("/edit/{id}")
+    public String edit(@PathVariable int id, @RequestBody Estudios est) {
         serv.edit(est);
+        servP.editarEst(id, est.getId());
         return "Estudio editada con exito";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
+    @DeleteMapping("/delete/{id}/{idp}")
+    public String delete(@PathVariable int id, @PathVariable int idp) {
+        servP.deleteEst(idp, id);
         serv.delete(id);
         return "Estudio borrada con exito";
     }

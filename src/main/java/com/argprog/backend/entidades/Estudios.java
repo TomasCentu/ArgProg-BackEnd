@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +17,6 @@ public class Estudios {
         private String nombre;
         private String descripcion;
         private String foto;
-        
-        @ManyToOne(targetEntity = Persona.class)
-        private Persona persona;
 
         public Estudios() {  }
 
@@ -29,12 +25,6 @@ public class Estudios {
                 this.descripcion = descripcion;
                 this.foto = foto;
         }
-
-        public Estudios(String nombre, String descripcion, String foto, Persona persona) {
-                this.nombre = nombre;
-                this.descripcion = descripcion;
-                this.foto = foto;
-                this.persona = persona;
-        }   
+    
         
 }
