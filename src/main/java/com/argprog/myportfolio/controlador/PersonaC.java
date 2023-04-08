@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/per")
 public class PersonaC {
 

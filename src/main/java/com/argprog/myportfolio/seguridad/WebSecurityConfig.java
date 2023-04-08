@@ -30,7 +30,7 @@ public class WebSecurityConfig {
   @Autowired
   private JwtEntryPoint unauthorizedHandler;
 
-  private String baseURL = "http://localhost:4200/";
+  private String baseURL = "https://argprograma-bb7bb.web.app";
 
   private String method = "*";
 

@@ -16,7 +16,7 @@ import com.argprog.myportfolio.Entidades.Proyectos;
 import com.argprog.myportfolio.servicios.ProyectosServ;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/per/pro")
 public class ProyectosC {
     

@@ -16,7 +16,7 @@ import com.argprog.myportfolio.servicios.EstudiosServ;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/per/est")
 public class EstudiosC {
 

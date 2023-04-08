@@ -16,7 +16,7 @@ import com.argprog.myportfolio.Entidades.Habilidades;
 import com.argprog.myportfolio.servicios.HabilidadesServ;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/per/hab")
 public class HabilidadesC {
 

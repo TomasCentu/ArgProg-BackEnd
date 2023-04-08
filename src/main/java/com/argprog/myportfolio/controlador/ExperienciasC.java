@@ -16,7 +16,7 @@ import com.argprog.myportfolio.Entidades.Experiencias;
 import com.argprog.myportfolio.servicios.ExperienciasServ;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/per/exp")
 public class ExperienciasC {
 
