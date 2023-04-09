@@ -3,6 +3,7 @@ package com.argprog.myportfolio.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +30,13 @@ public class HabilidadesC {
     }
         
     @PostMapping("/save")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void save(@RequestBody Habilidades habilidades) {
         serv.save(habilidades);
     }
 
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void delete(@PathVariable int id) {
         serv.delete(id);
     }

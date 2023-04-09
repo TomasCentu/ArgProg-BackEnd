@@ -24,6 +24,10 @@ public class Persona {
     @NotNull
     private String foto;
     @NotNull
+    private String github;
+    @NotNull
+    private String linkedin;
+    @NotNull
     private String sobreMi;
     @NotNull
     private String banner;
@@ -34,11 +38,17 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String cargo, String foto, String banner, String sobreMi) {
+    public Persona(@NotNull String nombre, @NotNull String cargo, @NotNull String foto, @NotNull String github,
+            @NotNull String linkedin, @NotNull String sobreMi, @NotNull String banner, Usuario usuario) {
         this.nombre = nombre;
         this.cargo = cargo;
         this.foto = foto;
-        this.banner = banner;
+        this.github = github;
+        this.linkedin = linkedin;
         this.sobreMi = sobreMi;
+        this.banner = banner;
+        this.usuario = usuario;
     }
+
+    
 }

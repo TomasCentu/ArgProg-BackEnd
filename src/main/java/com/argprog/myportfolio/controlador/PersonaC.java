@@ -4,6 +4,7 @@ import com.argprog.myportfolio.Entidades.Persona;
 import com.argprog.myportfolio.servicios.PersonaServ;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,11 +32,13 @@ public class PersonaC {
     }
         
     @PostMapping("/save")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void save(@RequestBody Persona persona) {
         serv.save(persona);
     }
 
     @PostMapping("/edit")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public void edit(@RequestBody Persona persona) {
         serv.edit(persona);
     }

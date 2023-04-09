@@ -37,6 +37,9 @@ public class PersonaServ {
         OldPersona.setNombre(persona.getNombre());
         OldPersona.setCargo(persona.getCargo());
         OldPersona.setSobreMi(persona.getSobreMi());
+        
+        OldPersona.setGithub(persona.getGithub());
+        OldPersona.setLinkedin(persona.getLinkedin());
 
         repo.save(OldPersona);
     }
