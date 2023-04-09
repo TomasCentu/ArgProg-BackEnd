@@ -22,6 +22,7 @@ public class PersonaC {
     private PersonaServ serv;
         
     @GetMapping("/get/{id}")
+    @PreAuthorize("hasRole('USER')")
     public Persona get(@PathVariable int id) {
         return serv.getPersona(id);
     }
@@ -32,13 +33,13 @@ public class PersonaC {
     }
         
     @PostMapping("/save")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Persona persona) {
         serv.save(persona);
     }
 
     @PostMapping("/edit")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void edit(@RequestBody Persona persona) {
         serv.edit(persona);
     }
