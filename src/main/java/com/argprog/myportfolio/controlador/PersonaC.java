@@ -22,7 +22,6 @@ public class PersonaC {
     private PersonaServ serv;
         
     @GetMapping("/get/{id}")
-    @PreAuthorize("hasRole('USER')")
     public Persona get(@PathVariable int id) {
         return serv.getPersona(id);
     }

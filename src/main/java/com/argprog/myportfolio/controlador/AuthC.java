@@ -64,11 +64,7 @@ public class AuthC {
         Usuario usuario = new Usuario(user.getNombre(), passE.encode(user.getPass()));
 
         Set<Rol> roles = new HashSet<>();
-        roles.add(rolServ.getRol(Roles.ROLE_USER).get());
-
-        if (user.getModo().contains("admin")) {
-            roles.add(rolServ.getRol(Roles.ROLE_ADMIN).get());
-        }
+        roles.add(rolServ.getRol(Roles.ROLE_ADMIN).get());
 
         usuario.setRoles(roles);
         userServ.save(usuario);
