@@ -30,13 +30,13 @@ public class HabilidadesC {
     }
         
     @PostMapping("/save")
-    @PreAuthorize(value = "hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Habilidades habilidades) {
         serv.save(habilidades);
     }
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable int id) {
         serv.delete(id);
     }
