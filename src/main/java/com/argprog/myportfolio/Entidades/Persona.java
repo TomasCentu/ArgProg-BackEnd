@@ -31,6 +31,8 @@ public class Persona {
     private String sobreMi;
     @NotNull
     private String banner;
+    @NotNull
+    private String cv;
 
     @OneToOne
     private Usuario usuario;
@@ -39,7 +41,8 @@ public class Persona {
     }
 
     public Persona(@NotNull String nombre, @NotNull String cargo, @NotNull String foto, @NotNull String github,
-            @NotNull String linkedin, @NotNull String sobreMi, @NotNull String banner, Usuario usuario) {
+            @NotNull String linkedin, @NotNull String sobreMi, @NotNull String banner, @NotNull String cv,
+            Usuario usuario) {
         this.nombre = nombre;
         this.cargo = cargo;
         this.foto = foto;
@@ -47,8 +50,8 @@ public class Persona {
         this.linkedin = linkedin;
         this.sobreMi = sobreMi;
         this.banner = banner;
+        this.cv = cv;
         this.usuario = usuario;
     }
-
     
 }
