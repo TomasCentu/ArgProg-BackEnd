@@ -30,7 +30,7 @@ public class HabilidadesC {
     }
         
     @PostMapping("/save")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize(value = "hasAuthority('ROLE_ADMIN')")
     public void save(@RequestBody Habilidades habilidades) {
         serv.save(habilidades);
     }
