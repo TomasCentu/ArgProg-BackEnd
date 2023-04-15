@@ -28,9 +28,7 @@ public class WebSecurityConfig {
   @Autowired
   private JwtEntryPoint unauthorizedHandler;
 
-  private String baseURL = "https://argprograma-bb7bb.web.app";
-
-  private String method = "*";
+  private String[] baseURL = {"https://argprograma-bb7bb.web.app"};
 
   @Bean
   public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -63,28 +61,12 @@ public class WebSecurityConfig {
       @Override
       public void addCorsMappings(CorsRegistry registry) {
         registry
-            .addMapping("/auth/**")
-            .allowedOrigins(baseURL)
-            .maxAge(3600)
-            .allowedMethods(method);
-
-        registry
-            .addMapping("/inicio/**")
-            .allowedOrigins(baseURL)
-            .maxAge(3600)
-            .allowedMethods(method);
-
-        registry
-            .addMapping("/forms/**")
-            .allowedOrigins(baseURL)
-            .maxAge(3600)
-            .allowedMethods(method);
-        
-        registry
-            .addMapping("/**")
-            .allowedOrigins(baseURL)
-            .maxAge(3600)
-            .allowedMethods(method);
+          .addMapping("/**")
+          .allowedOrigins(baseURL)
+          .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+          .allowedHeaders("*")
+          .allowCredentials(true)
+          .maxAge(3600);
       }
     };
   }
@@ -96,7 +78,7 @@ public class WebSecurityConfig {
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeHttpRequests()
-        .requestMatchers("https://argprograma-bb7bb.web.app/**").permitAll()
+        .requestMatchers("/**").permitAll()
         .anyRequest().authenticated();
 
     http.authenticationProvider(authenticationProvider());
