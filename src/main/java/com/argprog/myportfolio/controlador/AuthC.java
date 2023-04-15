@@ -13,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +30,6 @@ import com.argprog.myportfolio.servicios.UsuarioServ;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin("https://argprograma-bb7bb.web.app")
 @RequestMapping("/auth")
 public class AuthC {
 
