@@ -34,6 +34,10 @@ public class PersonaServ {
             OldPersona.setBanner(persona.getBanner());
         }
 
+        if (persona.getCv() != "") {
+            OldPersona.setCv(persona.getCv());
+        }
+
         OldPersona.setNombre(persona.getNombre());
         OldPersona.setCargo(persona.getCargo());
         OldPersona.setSobreMi(persona.getSobreMi());
