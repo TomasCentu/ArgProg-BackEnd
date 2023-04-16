@@ -4,7 +4,6 @@ import com.argprog.myportfolio.Entidades.Persona;
 import com.argprog.myportfolio.servicios.PersonaServ;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,25 +19,21 @@ public class PersonaC {
     private PersonaServ serv;
         
     @GetMapping("/get/{id}")
-    @PreAuthorize("hasRole('user')")
     public Persona get(@PathVariable int id) {
         return serv.getPersona(id);
     }
 
     @GetMapping("/exist/{id}")
-    @PreAuthorize("hasRole('user')")
     public Boolean exist(@PathVariable int id) {
         return serv.exist(id);
     }
         
     @PostMapping("/save")
-    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Persona persona) {
         serv.save(persona);
     }
 
     @PostMapping("/edit")
-    @PreAuthorize("hasRole('ADMIN')")
     public void edit(@RequestBody Persona persona) {
         serv.edit(persona);
     }
