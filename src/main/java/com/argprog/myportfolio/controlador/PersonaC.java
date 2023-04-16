@@ -20,13 +20,13 @@ public class PersonaC {
     private PersonaServ serv;
         
     @GetMapping("/get/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('user')")
     public Persona get(@PathVariable int id) {
         return serv.getPersona(id);
     }
 
     @GetMapping("/exist/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('user')")
     public Boolean exist(@PathVariable int id) {
         return serv.exist(id);
     }
