@@ -28,13 +28,11 @@ public class EstudiosC {
     }
         
     @PostMapping("/save")
-    @PreAuthorize("hasRole('ADMIN')")
     public void save(@RequestBody Estudios estudios) {
         serv.save(estudios);
     }
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable int id) {
         serv.delete(id);
     }
